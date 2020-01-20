@@ -28,13 +28,48 @@
                 padding-top: 18px;
                 padding-bottom: 18px;
                 text-align: center;
-                .edit-icon {
-                    color: $green;
+                button {
+                    background: transparent;
+                    border: none;
+                    cursor: pointer;
+                    height: 100%;
+                    width: 100%;
+                    .edit-icon, .delete-icon{
+                        transition: all 0.2s linear;
+                        &.clicked{
+                            animation: iconAnimation 0.3s linear 1;
+                        }    
+                    }
+                    .edit-icon {
+                        color: $green;
+                    }
+                    .delete-icon {
+                        color: $red;
+                    }
+                    &:hover{
+                        .edit-icon, .delete-icon{
+                            font-size: 19px;
+                        }
+                    }
+                    @keyframes iconAnimation {
+                        0%{
+                            transform: rotate(0deg);
+                        }
+                        25%{
+                            transform: rotate(-45deg);
+                        }
+                        50% {
+                            transform: rotate(0deg);
+                        }
+                        75%{
+                            transform: rotate(70deg);
+                        }
+                    }
+                    &:focus{
+                        outline: none;
+                    }
                 }
-                .delete-icon {
-                    color: $red;
-                }
-            }
+            } 
             &:last-child{
                 border: none;
             }
