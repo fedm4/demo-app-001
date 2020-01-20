@@ -11,7 +11,7 @@ const MainNav = () => {
             </header>
             <NavSearch></NavSearch>
             <NavItem to="#" label="Dashboard"></NavItem>
-            <NavItem to="/users" label="users" selected={true}></NavItem>
+            <NavItem to="/" label="users" selected={true}></NavItem>
         </nav>
     );
 };

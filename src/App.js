@@ -14,7 +14,7 @@ function App() {
           <MainHeader></MainHeader>
           <section id="main-content">
             <Switch>
-              <Route path="/users" component={Users} />
+              <Route path="/" component={Users} />
             </Switch>
           </section>
           <footer id="main-footer"></footer>
