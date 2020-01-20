@@ -8,7 +8,13 @@
     .card-header{
         background: $card-header;
         padding: 15px;
-        color: $dark-gray;  
+        height: 75px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        h1{
+            color: $dark-gray;  
+        }
     }
     .card-content{
         padding: 15px;
