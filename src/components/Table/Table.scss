@@ -1,0 +1,43 @@
+@import '../../scss/common/variables';
+
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    thead{
+        border-top: 1px solid $lighter-gray;
+        border-left: 1px solid $lighter-gray;
+        border-right: 1px solid $lighter-gray;
+        box-shadow: 0 5px 5px $lighter-gray;
+        th{
+            color: $green;
+            font-weight: 400;
+            line-height: 1.4;
+            background-color: transparent;
+            padding-top: 18px;
+            padding-bottom: 18px;
+            text-transform: capitalize;
+        }
+    }
+    tbody{
+        tr{
+            border-bottom: 1px solid $lighter-gray;
+            td{
+                background-color: transparent;
+                font-weight: 300;
+                line-height: 1.4;
+                padding-top: 18px;
+                padding-bottom: 18px;
+                text-align: center;
+                .edit-icon {
+                    color: $green;
+                }
+                .delete-icon {
+                    color: $red;
+                }
+            }
+            &:last-child{
+                border: none;
+            }
+        }
+    }
+}

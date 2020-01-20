@@ -4,7 +4,8 @@
     box-sizing: border-box;
     background-color: $dark-gray;
     width: 220px;
-    flex:1;
+    display:fixed;
+    height: 100vh;
 }
 #main-nav-header{
     color: $white;

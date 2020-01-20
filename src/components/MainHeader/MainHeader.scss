@@ -1,0 +1,10 @@
+@import '../../scss/common/variables';
+
+#main-header {
+    align-items: center;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px $dark-gray;
+    display: flex;
+    height: 72px;
+    padding: 30px;
+  }

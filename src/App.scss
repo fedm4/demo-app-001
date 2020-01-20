@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap');
+@import './scss/common/variables';
+
 body{
   font-family: 'Lato', sans-serif;
 }
@@ -7,7 +9,21 @@ body{
   align-items: flex-start;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  height: 100%;
+  flex-direction: row;
   min-height: 100vh;
+}
+#main {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: calc(100% - 220px);
+}
+
+#main-content{
+  background-color: $lighter-gray;
+  min-height: calc(100vh - 72px);
+  padding: 30px;
+  h1{
+    margin: 0;
+  }
 }

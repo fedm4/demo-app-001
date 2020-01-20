@@ -1,0 +1,22 @@
+@import '../../scss/common/variables';
+.card{
+    background: $white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    box-shadow: 0 0 3px $light-gray;
+    overflow: hidden;
+    .card-header{
+        background: $card-header;
+        padding: 15px;
+        color: $dark-gray;  
+    }
+    .card-content{
+        padding: 15px;
+    }
+    &.halfwidth {
+        width: 50%;
+    }
+    &.fullwidth{
+        width: 100%;
+    }
+}
