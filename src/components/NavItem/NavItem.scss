@@ -1,0 +1,34 @@
+@import '../../scss/common/variables';
+
+.nav-item{
+    border: 0px solid $green;
+    transition: all 0.2s linear;
+    a {
+        color: $light-gray;
+        display: inline-block;
+        height: 100%;
+        text-decoration: none;
+        text-transform: capitalize;
+        transition: all 0.2s linear;
+        width: 100%;
+        padding: 15px 15px 15px 30px;
+
+        height: 100%;
+    }
+    &:hover {
+        border-color: lighten($green, 20);
+        border-left-width: 5px;
+        a {
+            padding-left: 25px;
+            color: lighten($green, 20); 
+        }
+    }
+    &.selected {
+        border-color: $green!important;
+        border-left-width: 5px;
+        a {
+            padding-left: 25px;
+            color: $green!important;
+        }
+    }
+}

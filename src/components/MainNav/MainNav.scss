@@ -1,0 +1,18 @@
+@import '../../scss/common/variables';
+
+#main-nav{
+    box-sizing: border-box;
+    background-color: $dark-gray;
+    width: 220px;
+    height: 100%;
+}
+#main-nav-header{
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 25px 0; 
+    h1 {
+        font-size: 18px;
+        margin: 0;
+    }
+}

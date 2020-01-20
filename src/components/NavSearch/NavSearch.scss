@@ -1,0 +1,25 @@
+@import '../../scss/common/variables';
+
+.nav-search {
+    background-color: $darker-gray;
+    border: none;
+    box-sizing: border-box;
+    color: $light-gray;
+    font-family: 'Lato', sans-serif;
+    height: 40px;
+    margin-bottom: 20px;
+    padding-left: 60px;
+    width: 100%;
+}
+.nav-search:focus {
+    outline: none;
+}
+.nav-search-container {
+    position: relative;
+}
+.search-icon {
+    color: $light-gray;
+    position: absolute;
+    top: 11px;
+    left: 30px;    
+}
