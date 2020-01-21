@@ -4,7 +4,7 @@
     box-sizing: border-box;
     background-color: $dark-gray;
     width: 220px;
-    display:fixed;
+    position: fixed;
     height: 100vh;
 }
 #main-nav-header{

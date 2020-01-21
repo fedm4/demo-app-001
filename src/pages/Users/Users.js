@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card from '../../components/Card/Card';
 import Table from '../../components/Table/Table';
 import Axios from 'axios';
+import AddButton from '../../components/AddButton/AddButton';
 
 const columns = ['id', 'name', 'username', 'email'];
 
@@ -23,6 +24,7 @@ const Users = () => {
             <Card width="fullwidth" title="Users">
                 <Table columns={columns} data={data}></Table>
             </Card>
+            <AddButton></AddButton>
         </div>
     );
 };
