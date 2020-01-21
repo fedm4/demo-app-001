@@ -9,9 +9,7 @@ const Users = () => {
     let [data, setData] = useState([]);
     const fetchData = async () => {
         try{
-            const res = await Axios.get('http://jsonplaceholder.typicode.com/users', {headers: {
-                'Access-Control-Allow-Origin' : '*'
-            }});
+            const res = await Axios.get('http://jsonplaceholder.typicode.com/users');
             setData(res.data);
         } catch(e) {
             throw e;
