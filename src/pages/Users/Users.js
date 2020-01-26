@@ -26,13 +26,13 @@ const Users = props => {
     } 
 
     return (
-        <div>
+        <div className="container">
             <div className="flip-card-outer">
                 <div className={`flip-card-inner ${flipped}`}>
                     <Card className="flip-card-front" width="fullwidth" title="Users">
                         <Table columns={columns} data={users}></Table>
                     </Card>
-                    <Card className="flip-card-back" width="fullwidth" title="User">
+                    <Card className="flip-card-back" width="halfwidth" title="User">
                         <Input type="text" placeholder="Name" />
                         <Input type="text" placeholder="Username" />
                         <Input type="email" placeholder="Email" />

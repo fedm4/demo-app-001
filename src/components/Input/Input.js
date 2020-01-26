@@ -24,6 +24,7 @@ const Input = props => {
                 onFocus={handleOnFocus}
                 onBlur={handleOnBlur}
             />
+            <span className="border-focus"></span>
         </div>
     );
 };

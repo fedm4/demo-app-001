@@ -16,26 +16,37 @@
         position: absolute;
         top: 10px;
         transition: all 0.3s linear;
+        z-index: 10;
         &.top{
-            color: $dark-gray;
+            color: darken($green,10);
             left: 10px;
             top: -25px;
         }
     }
     .input {
-        border-radius: 3px;
         border: none;
-        box-shadow: 0 0 5px $light-gray;
+        border-bottom: 1px solid $light-gray;
         box-sizing: border-box;
         font-family: $font-family;
         font-size: 18px;
         height: 40px;
         padding-left: 30px;
-        transition: box-shadow 0.2s linear;
         width: 100%;
+        & + .border-focus{
+            border-bottom: 2px solid $green;
+            bottom: 0;
+            content: ' ';
+            display: block;
+            left: 0;
+            position: absolute;
+            transition: all 0.5s linear;
+            width: 0;
+        }
         &:focus {
             outline: none;
-            box-shadow: 0 0 5px 2px $green;
+            & + .border-focus {
+                width: 100%;
+            }
         }
     }
 }
