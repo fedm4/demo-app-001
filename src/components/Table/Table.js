@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './Table.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
