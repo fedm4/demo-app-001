@@ -4,20 +4,20 @@ import './Input.scss';
 
 
 const Input = props => {
-    const [top, setTop] = useState("");
+    const [top, setTop] = useState(false);
     const handleOnChange = event => {
         const el = event.currentTarget;
-        setTop(el.value.length > 0 ? "top" : "");
+        setTop(el.value.length > 0 ? true : false);
     };
     const handleOnFocus = () => {
-        setTop("top");
+        setTop(true);
     };
     const handleOnBlur = event => {
         handleOnChange(event);
     }
     return (
         <div className="input-container">
-            <label className={`input-label ${top}`}>{props.placeholder}</label>
+            <label className={`input-label ${top ? "top" : ""}`}>{props.placeholder}</label>
             <input className="input" 
                 type={`${props.type ? props.type : 'text'}`}
                 onChange={handleOnChange}

@@ -13,7 +13,7 @@ const columns = ['id', 'name', 'username', 'email'];
 
 const Users = props => {
     const dispatch = useDispatch();
-    const [flipped, setFlipped] = useState("");
+    const [flipped, setFlipped] = useState(false);
     const { users } = useSelector(state => {
         return state.users;
     });
@@ -22,13 +22,13 @@ const Users = props => {
     }, [dispatch]);
 
     const toggleFlipped = () => {
-        setFlipped(flipped === "" ? "flipped" : ""); 
+        setFlipped(!flipped); 
     } 
 
     return (
         <div className="container">
             <div className="flip-card-outer">
-                <div className={`flip-card-inner ${flipped}`}>
+                <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
                     <Card className="flip-card-front" width="fullwidth" title="Users">
                         <Table columns={columns} data={users}></Table>
                     </Card>
