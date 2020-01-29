@@ -8,6 +8,7 @@ import SaveButton from '../../components/SaveButton/SaveButton';
 
 import './Users.scss';
 import Input from '../../components/Input/Input';
+import UserForm from '../../components/UserForm/UserForm';
 
 const columns = ['id', 'name', 'username', 'email'];
 
@@ -33,10 +34,7 @@ const Users = props => {
                         <Table columns={columns} data={users}></Table>
                     </Card>
                     <Card className="flip-card-back" width="halfwidth" title="User">
-                        <Input type="text" placeholder="Name" />
-                        <Input type="text" placeholder="Username" />
-                        <Input type="email" placeholder="Email" />
-                        <SaveButton />
+                        <UserForm></UserForm>
                     </Card>
                 </div>
             </div>

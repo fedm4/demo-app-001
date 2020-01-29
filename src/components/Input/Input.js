@@ -8,6 +8,7 @@ const Input = props => {
     const handleOnChange = event => {
         const el = event.currentTarget;
         setTop(el.value.length > 0 ? true : false);
+        props.onChange(event);
     };
     const handleOnFocus = () => {
         setTop(true);
