@@ -16,7 +16,7 @@ const userReducer = (state = {user:{}, loading:false, error: null}, action) => {
         case ERROR_GET_USER:
             return { ...state, error: action.error, loading: false }
         case START_POST_USER:
-            return { ...state, loading: true };
+            return { ...state, payload: action, loading: true };
         case SUCCESS_POST_USER:
             return { ...state, user: action.user, loading: false }
         case ERROR_POST_USER:

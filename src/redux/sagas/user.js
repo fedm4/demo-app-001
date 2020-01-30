@@ -18,8 +18,7 @@ function* getUser({payload}) {
     }
 }
 
-function* postUser({payload}) {
-    console.log(payload)
+function* postUser(payload) {
     try{
         const res = yield call(Axios.post, `https://jsonplaceholder.typicode.com/users`, payload);
         yield put(successPostUser({user: res.data}));
