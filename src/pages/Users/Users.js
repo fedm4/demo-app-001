@@ -26,6 +26,10 @@ const Users = props => {
         setFlipped(!flipped); 
     } 
 
+    const afterSave = () => {
+        toggleFlipped();
+    }
+
     return (
         <div className="container">
             <div className="flip-card-outer">
@@ -34,11 +38,11 @@ const Users = props => {
                         <Table columns={columns} data={users}></Table>
                     </Card>
                     <Card className="flip-card-back" width="halfwidth" title="User">
-                        <UserForm></UserForm>
+                        <UserForm afterSave={afterSave}></UserForm>
                     </Card>
                 </div>
             </div>
-            <AddButton onClick={toggleFlipped}></AddButton>
+            <AddButton backOnClick={true} flipped={flipped} onClick={toggleFlipped}></AddButton>
         </div>
     );
 };

@@ -8,6 +8,7 @@ import {
     ERROR_POST_USER,
     successPostUser
 } from '../actions/user';
+import { addUserToList } from '../actions/users';
 
 function* getUser({payload}) {
     try {
@@ -22,6 +23,7 @@ function* postUser(payload) {
     try{
         const res = yield call(Axios.post, `https://jsonplaceholder.typicode.com/users`, payload);
         yield put(successPostUser({user: res.data}));
+        yield put(addUserToList({user: res.data}));
     } catch(err) {
         yield put({type: ERROR_POST_USER, error: err});
     }

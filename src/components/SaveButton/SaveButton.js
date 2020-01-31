@@ -11,9 +11,14 @@ const SaveButton = props => {
         el.classList.add('saved');
         props.onClick(event);
         setTimeout(() => {
+            if(props.callback) {
+                props.callback();
+            }
+        }, 3000);
+        setTimeout(() => {
             el.children[0].classList.remove('full');
             el.classList.remove('saved');
-        }, 5000);
+        }, 3500);
     };
 
     return (

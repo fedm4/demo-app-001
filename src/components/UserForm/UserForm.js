@@ -12,13 +12,16 @@ const UserForm = props => {
     const handleAction = () => {
         dispatch(startPostUser({name, username, email}));
     };
+    const afterSave = () => {
+        props.afterSave();
+    };
 
     return (
         <div>
             <Input onChange={e => setName(e.target.value)} type="text" placeholder="Name" />
             <Input onChange={e => setUsername(e.target.value)} type="text" placeholder="Username" />
             <Input onChange={e => setEmail(e.target.value)} type="email" placeholder="Email" />
-            <SaveButton onClick={handleAction}/>
+            <SaveButton onClick={handleAction} callback={afterSave}/>
         </div>
     );
 };
