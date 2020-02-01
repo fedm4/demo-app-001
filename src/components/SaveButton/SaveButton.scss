@@ -1,5 +1,10 @@
 @import '../../scss/common/variables';
 
+@mixin activeIcon () {
+    animation: spin 0.7s 1 linear;
+    font-size: 22px;
+}
+
 .save-button {
     background-color: $green;
     border: none;
@@ -20,17 +25,28 @@
             opacity: 0;
         }
         .fa-check {
-            font-size: 22px;
+            @include activeIcon();
             left: 9px;
             top: 8px;
-            animation: spin 0.7s 1 linear;
-            @keyframes spin {
-                from {
-                    transform: rotate(0deg);
-                }
-                to {
-                    transform: rotate(-720deg);
-                }
+        }
+        &.error {
+            background-color: $red;
+            .fa-check {
+                font-size: 0;
+            }
+            .fa-times {
+                @include activeIcon();
+                left: 12px;
+                top: 9px;
+            }
+
+        }
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(-720deg);
             }
         }
     }
@@ -47,16 +63,19 @@
         opacity: 0.4;
         position: absolute;
         top: 0;
-        transition: width 2s linear;
+        transition: width 2s linear, background-color 0.5s linear;
         width: 0;
         &.full {
             width: 100%;
+            &.error {
+                background-color: $red;
+            }
         }
     }
     .save-button-text{ 
         transition: opacity 0.2s linear;
     }
-    .fa-check {
+    .fa-check, .fa-times {
         font-size: 0;
         position: absolute;
         transition: all 0.3s linear;
