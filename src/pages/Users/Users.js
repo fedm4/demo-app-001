@@ -4,10 +4,8 @@ import Card from '../../components/Card/Card';
 import Table from '../../components/Table/Table';
 import AddButton from '../../components/AddButton/AddButton';
 import  { startGetUsers } from '../../redux/actions/users';
-import SaveButton from '../../components/SaveButton/SaveButton';
 
 import './Users.scss';
-import Input from '../../components/Input/Input';
 import UserForm from '../../components/UserForm/UserForm';
 
 const columns = ['id', 'name', 'username', 'email'];
@@ -37,7 +35,7 @@ const Users = props => {
                     <Card className="flip-card-front" width="fullwidth" title="Users">
                         <Table columns={columns} data={users}></Table>
                     </Card>
-                    <Card className="flip-card-back" width="halfwidth" title="User">
+                    <Card className="flip-card-back" width="fullwidth" title="User">
                         <UserForm afterSave={afterSave}></UserForm>
                     </Card>
                 </div>
