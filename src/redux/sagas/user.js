@@ -19,12 +19,11 @@ function* getUser({payload}) {
     }
 }
 
-function* postUser({user, username, email}) {
+function* postUser({payload}) {
     try{
-        const res = yield call(Axios.post, `https://jsonplaceholder.typicode.com/users`, {user, username, email});
-        //yield put(successPostUser({user: res.data}));
-        //yield put(addUserToList({user: res.data}));
-        yield put(errorPostUser({error: "error"}));
+        const res = yield call(Axios.post, `https://jsonplaceholder.typicode.com/users`, payload);
+        yield put(successPostUser({user: res.data}));
+        yield put(addUserToList({user: res.data}));
     } catch(err) {
         yield put(errorPostUser({error: err}));
     }

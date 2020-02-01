@@ -25,7 +25,7 @@ export const errorGetUser = payload => ({
 // POST
 export const startPostUser = payload => ({
     type: START_POST_USER,
-    ...payload
+    payload
 });
 
 export const successPostUser = payload => ({

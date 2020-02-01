@@ -7,7 +7,7 @@ import {
     ERROR_POST_USER
 } from "../actions/user";
 
-const userReducer = (state = {user:{}, loading:false, error: null}, action) => {
+const userReducer = (state = {user:{name: null, username: null, email: null}, payload: null, loading:false, error: null}, action) => {
     switch (action.type) {
         case START_GET_USER:
             return { ...state, loading: true };
@@ -21,7 +21,7 @@ const userReducer = (state = {user:{}, loading:false, error: null}, action) => {
                 username: action.username,
                 email: action.email
             };
-            return { ...state, user, loading: true };
+            return { ...state, payload: action, loading: true };
         case SUCCESS_POST_USER:
             return { ...state, user: action.user, loading: false }
         case ERROR_POST_USER:

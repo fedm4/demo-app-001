@@ -27,17 +27,14 @@ const SaveButton = ({callback, onClick}) => {
         setProgressClass('full');
         onClick();
     };
-
-    useEffect(()=>{
-        // First run do not do anything
-        if(firstRun.current) {
-            firstRun.current = false;
-            return;
-        }
+    const setTimerTimeout = (callback) => {
         // Start timer for animations
         const time = getTimer(timeCounter);
         // main timeout for animations
-        setTimeout(() => {
+        setTimeout(callback, time);
+    };
+    const saveAnimations = () => {
+        setTimerTimeout(() => {
             setButtonClass('saved');
             // Call callback after one second of main timeout
             setTimeout(() => {
@@ -50,22 +47,37 @@ const SaveButton = ({callback, onClick}) => {
                 setProgressClass('');
                 setButtonClass('');
             }, 1500);
-        }, time);
+        });
+    }
+    const errorAnimations = () => {
+        setTimerTimeout(() => {
+            setProgressClass("full error");
+            setButtonClass("saved error");
+            // Remove classes for button to restart
+            setTimeout(() => {
+                setProgressClass('');
+                setButtonClass('');
+            }, 2000);
+        });
+    };
+    // When user is saved
+    useEffect(()=>{
+        // First run do not do anything
+        if(firstRun.current) {
+            firstRun.current = false;
+            return;
+        }
+        saveAnimations();
     }, [user]);
     
+    // When user save returns error
     useEffect(()=>{
         //First run do not do anything
         if(firstRunError.current) {
             firstRunError.current = false;
             return;
         }
-        // Set timer for anitmation
-        const time = getTimer(timeCounter);
-        // Main timeout to set error classes
-        setTimeout(() => {
-            setProgressClass("full error");
-            setButtonClass("saved error");
-        }, time);
+        errorAnimations();
     }, [error]);
     return (
         <button onClick={handleClick} className={`save-button ${buttonClass}`}>
