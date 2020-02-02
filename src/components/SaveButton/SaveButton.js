@@ -73,7 +73,7 @@ const SaveButton = ({callback, onClick}) => {
     // When user save returns error
     useEffect(()=>{
         //First run do not do anything
-        if(firstRunError.current) {
+        if(firstRunError.current || error === null) {
             firstRunError.current = false;
             return;
         }

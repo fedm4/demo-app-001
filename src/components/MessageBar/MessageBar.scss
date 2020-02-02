@@ -1,0 +1,40 @@
+@import '../../scss/common/variables';
+
+.message-bar {
+    align-items: center;
+    border-radius: 5px;
+    box-sizing: border-box;
+    display: flex;
+    height: 40px;
+    justify-content: space-between;
+    margin: 0 auto 20px;
+    opacity: 1;
+    overflow: hidden;
+    padding: 15px 25px;
+    position: relative;
+    transition: opacity 0.3s linear;
+    width: 100%;
+    &.hide {
+        opacity: 0;
+    }
+    &.halfwidth {
+        width: 50%;
+    }
+    &.error {
+        background-color: $red;
+        color: $white;
+    }
+    &:before{
+        background-color: darken($red, 20);
+        content: ' ';
+        display: block;
+        left: 0;
+        height: 40px;
+        top: 0;
+        position: absolute;
+        width: 10px;
+    }
+    .fa-times {
+        cursor: pointer;
+    }
+}
