@@ -11,8 +11,10 @@ import UserForm from '../../components/UserForm/UserForm';
 const columns = ['id', 'name', 'username', 'email'];
 
 const Users = props => {
+    const defaultSelectedUser = {id:"",name:"",username:"",email:""};
     const dispatch = useDispatch();
     const [flipped, setFlipped] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(defaultSelectedUser);
     const { users } = useSelector(state => {
         return state.users;
     });
@@ -22,21 +24,33 @@ const Users = props => {
 
     const toggleFlipped = () => {
         setFlipped(!flipped); 
+        if(flipped) {
+            setSelectedUser(defaultSelectedUser);
+        }
     } 
 
     const afterSave = () => {
         toggleFlipped();
-    }
-
+    };
+    const editUser = (user) => {
+        setSelectedUser(user);
+        toggleFlipped();
+    };
     return (
         <div className="container">
             <div className="flip-card-outer">
                 <div className={`flip-card-inner ${flipped ? "flipped" : ""}`}>
                     <Card className="flip-card-front" width="fullwidth" title="Users">
-                        <Table columns={columns} data={users}></Table>
+                        <Table edit={ user => editUser(user)} columns={columns} data={users}></Table>
                     </Card>
                     <Card className="flip-card-back" width="fullwidth" title="User">
-                        <UserForm afterSave={afterSave}></UserForm>
+                        <UserForm
+                            afterSave={afterSave}
+                            id={selectedUser.id}
+                            name={selectedUser.name}
+                            username={selectedUser.username}
+                            email={selectedUser.email}
+                            ></UserForm>
                     </Card>
                 </div>
             </div>

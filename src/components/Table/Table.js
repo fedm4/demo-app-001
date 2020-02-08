@@ -1,10 +1,15 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Table.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 const Table = props =>{
-    const setClicked = event =>{
+    const editClick = (event,user) => {
+        setClickedAnimation(event);
+        props.edit(user);
+    };
+    const setClickedAnimation = event =>{
         event.preventDefault();
         const element = event.currentTarget.children[0];
         element.classList.add("clicked");
@@ -29,12 +34,12 @@ const Table = props =>{
                                     return (<td key={`table-${index}-${key}`}>{item[key]}</td>);
                             })}
                             <td>
-                                <button onClick={setClicked}>
+                                <button onClick={event => {editClick(event, item)}}>
                                     <FontAwesomeIcon className="edit-icon" icon={faEdit}></FontAwesomeIcon>
                                 </button>
                             </td>
                             <td>
-                                <button onClick={setClicked}>
+                                <button onClick={setClickedAnimation}>
                                     <FontAwesomeIcon className="delete-icon" icon={faTimes}></FontAwesomeIcon>
                                 </button>
                             </td>
@@ -45,5 +50,10 @@ const Table = props =>{
         </table>
     );
 };
+
+Table.propTypes = {
+    edit: PropTypes.func.isRequired
+};
+
 
 export default Table;
