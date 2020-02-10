@@ -6,9 +6,12 @@ import {
     successGetUser,
     START_POST_USER,
     errorPostUser,
-    successPostUser
+    successPostUser,
+    START_PUT_USER,
+    successPutUser,
+    errorPutUser
 } from '../actions/user';
-import { addUserToList } from '../actions/users';
+import { addUserToList, editUserOnList } from '../actions/users';
 
 function* getUser({payload}) {
     try {
@@ -29,7 +32,18 @@ function* postUser({payload}) {
     }
 }
 
+function* putUser({payload}) {
+    try{
+        const res = yield call(Axios.put, `https://jsonplaceholder.typicode.com/users/${payload.id}`, payload);
+        yield put(successPostUser({user: res.data}));
+        yield put(editUserOnList({user: res.data}));
+    } catch(err) {
+        yield put(errorPostUser({error: err}));
+    }
+}
+
 export default function* user() {
     yield takeLatest(START_GET_USER, getUser);
     yield takeLatest(START_POST_USER, postUser);
+    yield takeLatest(START_PUT_USER, putUser);
 }

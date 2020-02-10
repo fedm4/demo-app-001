@@ -1,4 +1,4 @@
-import { START_GET_USERS, SUCCESS_GET_USERS, ERROR_GET_USERS, ADD_USER_TO_LIST } from "../actions/users";
+import { START_GET_USERS, SUCCESS_GET_USERS, ERROR_GET_USERS, ADD_USER_TO_LIST, EDIT_USER_ON_LIST } from "../actions/users";
 
 const usersReducer = (state = {users:[], loading:false, error: null}, action) => {
     switch (action.type) {
@@ -16,7 +16,17 @@ const usersReducer = (state = {users:[], loading:false, error: null}, action) =>
                 id: action.user.id
             };
             return { ...state, users: [...state.users, user], loading: false }
-        default: 
+        case EDIT_USER_ON_LIST:
+            const users = Object.assign({}, state.users);
+            const index = users.findIndex(user => user.id === action.user.id);
+            users[index] = {
+                id: action.user.id,
+                name: action.user.name,
+                username: action.user.username,
+                email: action.user.email
+            };
+            return { ...state, users, loading: false}
+         default: 
             return state;
     }
 };

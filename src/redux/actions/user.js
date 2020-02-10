@@ -4,6 +4,9 @@ export const ERROR_GET_USER = "ERROR_GET_USER";
 export const START_POST_USER = "START_POST_USER";
 export const SUCCESS_POST_USER = "SUCCESS_POST_USER";
 export const ERROR_POST_USER = "ERROR_POST_USER";
+export const START_PUT_USER = "START_PUT_USER";
+export const SUCCESS_PUT_USER = "SUCCESS_PUT_USER";
+export const ERROR_PUT_USER = "ERROR_PUT_USER";
 export const CLEAR_ERROR_USER = "CLEAR_ERROR_USER";
  
 export const startGetUser = payload => ({
@@ -35,6 +38,22 @@ export const successPostUser = payload => ({
 
 export const errorPostUser = payload => ({
     type: ERROR_POST_USER,
+    ...payload
+});
+
+// PUT
+export const startPutUser = payload => ({
+    type: START_PUT_USER,
+    payload
+});
+
+export const successPutUser = payload => ({
+    type: SUCCESS_PUT_USER,
+    ...payload
+});
+
+export const errorPutUser = payload => ({
+    type: ERROR_PUT_USER,
     ...payload
 });
 

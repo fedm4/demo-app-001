@@ -5,7 +5,10 @@ import {
     START_POST_USER,
     SUCCESS_POST_USER,
     ERROR_POST_USER,
-    CLEAR_ERROR_USER
+    CLEAR_ERROR_USER,
+    START_PUT_USER,
+    SUCCESS_PUT_USER,
+    ERROR_PUT_USER
 } from "../actions/user";
 
 const userReducer = (state = {user:{name: null, username: null, email: null}, payload: null, loading:false, error: null}, action) => {
@@ -21,6 +24,12 @@ const userReducer = (state = {user:{name: null, username: null, email: null}, pa
         case SUCCESS_POST_USER:
             return { ...state, user: action.user, loading: false }
         case ERROR_POST_USER:
+            return { ...state, error: action.error, loading: false }
+        case START_PUT_USER:
+            return { ...state, payload: action, loading: true };
+        case SUCCESS_PUT_USER:
+            return { ...state, user: action.user, loading: false }
+        case ERROR_PUT_USER:
             return { ...state, error: action.error, loading: false }
         case CLEAR_ERROR_USER: 
             return {...state, error: null }

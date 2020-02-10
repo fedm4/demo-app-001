@@ -2,6 +2,7 @@ export const START_GET_USERS = "START_USERS";
 export const SUCCESS_GET_USERS = "SUCCESS_GET_USERS";
 export const ERROR_GET_USERS = "ERROR_GET_USERS";
 export const ADD_USER_TO_LIST = "ADD_USER_TO_LIST";
+export const EDIT_USER_ON_LIST = "EDIT_USER_ON_LIST";
 
 
 export const startGetUsers = payload => ({
@@ -21,5 +22,10 @@ export const errorGetUsers = payload => ({
 
 export const addUserToList = payload => ({
     type: ADD_USER_TO_LIST,
+    ...payload
+});
+
+export const editUserOnList = payload => ({
+    type: EDIT_USER_ON_LIST,
     ...payload
 });

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import Input from '../Input/Input';
 import SaveButton from '../SaveButton/SaveButton';
-import { startPostUser, clearErrorUser } from '../../redux/actions/user';
+import { startPostUser, startPutUser, clearErrorUser } from '../../redux/actions/user';
 import MessageBar from '../MessageBar/MessageBar';
 
 const UserForm = props => {
@@ -24,7 +24,7 @@ const UserForm = props => {
     });
     const handleAction = () => {
         if(props.id) {
-            return;
+            dispatch(startPutUser({id: props.id, name, username, email}));
         }
         dispatch(startPostUser({name, username, email}));
     };
@@ -51,7 +51,7 @@ const UserForm = props => {
 };
 
 UserForm.propTypes = {
-    id: PropTypes.number.isRequired,
+    id: PropTypes.any.isRequired,
     name: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
